@@ -1,0 +1,72 @@
+.bckgrnd {
+    background-image: url('https://electrozevents.in/bckgrundCricket.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    border: 1px solid green;
+    padding: 10px;
+    text-align: center;
+}
+
+.headerbar {
+    background-color: #41552d;
+}
+
+.head {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.head h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #41552d;
+    padding: 12px;
+    text-align: center;
+}
+
+.head .logo img {
+    width: 150px;
+}
+
+h2 {
+    font-size: 20px;
+    padding: 1em;
+    color: #d2d8b4;
+    text-align: center;
+}
+/* 
+span {
+    padding: 12px;
+}
+
+span a {
+    color: #d2d8b4;
+} */
+table td, table th {
+    font-weight: bold; /* Makes the font bold */
+    color: rgb(0, 0, 0);      /* Sets the font color to white */
+}
+
+.buttonnew {
+background-color: #4CAF50;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
