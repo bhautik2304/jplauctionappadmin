@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const apiDomain="http://43.206.149.16/api/"
+export const apiDomain="http://3.114.113.63/api/"
 
 export const appRoutes = {
     // page Routes
