@@ -16,7 +16,7 @@ import Select from '@mui/material/Select';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { dataCheng, onInputCheng, openModel, playerClear } from '../Stores/Slice/modelSlice';
-import { apiRoutes, appAxios } from '../Constants';
+import axios , { apiRoutes} from '../Constants';
 import { Delete, Edit } from '@mui/icons-material';
 import { fetcchplayer } from '../Stores/Slice/playerSlice'
 
@@ -31,7 +31,7 @@ function Player() {
   const { player } = useSelector(state => state.palyer)
   const dispatch = useDispatch()
   const deletes = (id) => {
-    appAxios.delete(`${apiRoutes.playearcategury}${id}`).then((e) => {
+    axios.delete(`${apiRoutes.playearcategury}${id}`).then((e) => {
       dispatch(fetcchplayer())
       // dispatch(fetchplayercategury())
     })
@@ -123,7 +123,7 @@ function CateguryModel() {
     const formData = new FormData();
     formData.append('image', imageData);
     formData.append('data', JSON.stringify(player));
-    appAxios.post(apiRoutes.player, formData, {
+    axios.post(apiRoutes.player, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -133,7 +133,7 @@ function CateguryModel() {
     })
   }
   const update = () => {
-    appAxios.put(`${apiRoutes.player}${player.id}`, player).then((e) => {
+    axios.put(`${apiRoutes.player}${player.id}`, player).then((e) => {
       dispatch(playerClear())
       dispatch(fetcchplayer())
     })

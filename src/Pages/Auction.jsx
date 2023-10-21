@@ -16,7 +16,8 @@ import Echo from 'laravel-echo'
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { onInputCheng, openModel, auctionClear, dataCheng } from '../Stores/Slice/modelSlice';
-import { apiRoutes, appAxios } from '../Constants';
+import axios, { apiRoutes} from '../Constants';
+// import ,{ apiRoutes } from '../Constants';
 import { Delete, Edit } from '@mui/icons-material';
 import { fetchteams } from '../Stores/Slice/teamSlice'
 import { fetchSoldplayer } from '../Stores/Slice/soldPlayerSlice';
@@ -29,7 +30,7 @@ function Auction() {
   const dispatch = useDispatch()
 
   const delteEntry = (id) => {
-    appAxios.delete(apiRoutes.soldplayer + id).then(() => {
+    axios.delete(apiRoutes.soldplayer + id).then(() => {
       dispatch(auctionClear())
       dispatch(fetchteams())
       dispatch(fetcchplayer())
@@ -134,14 +135,14 @@ const AuctionModal = () => {
   const dispatch = useDispatch()
 
   const submit = () => {
-    appAxios.post(apiRoutes.soldplayer, auction).then((e) => {
+    axios.post(apiRoutes.soldplayer, auction).then((e) => {
       dispatch(auctionClear())
       dispatch(fetchteams())
       dispatch(fetchSoldplayer())
     })
   }
   const update = () => {
-    appAxios.put(apiRoutes.team, auction).then((e) => {
+    axios.put(apiRoutes.team, auction).then((e) => {
       dispatch(auctionClear())
       dispatch(fetchteams())
     })

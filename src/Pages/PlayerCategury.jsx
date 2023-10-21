@@ -14,7 +14,7 @@ import Paper from '@mui/material/Paper';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { dataCheng, onInputCheng, openModel, playerCateguryClear } from '../Stores/Slice/modelSlice';
-import { apiRoutes, appAxios } from '../Constants';
+import axios , { apiRoutes} from '../Constants';
 import { Delete, Edit } from '@mui/icons-material';
 import {fetchplayercategury} from '../Stores/Slice/playerCategurySlice'
 
@@ -22,7 +22,7 @@ function PlayerCategury() {
     // const [open, setopen] = useState(false)
     const { playerCategury } = useSelector(state => state.palyercategury)
     const deletes = (id) => {
-        appAxios.delete(`${apiRoutes.playearcategury}${id}`, playerCategury).then((e) => {
+        axios.delete(`${apiRoutes.playearcategury}${id}`, playerCategury).then((e) => {
             dispatch(playerCateguryClear())
             dispatch(fetchplayercategury())
         })
@@ -98,13 +98,13 @@ function CateguryModel() {
     const dispatch = useDispatch()
 
     const submit = () => {
-        appAxios.post(apiRoutes.playearcategury, playerCategury).then((e) => {
+        axios.post(apiRoutes.playearcategury, playerCategury).then((e) => {
             dispatch(playerCateguryClear())
             dispatch(fetchplayercategury())
         })
     }
     const update = () => {
-        appAxios.put(`${apiRoutes.playearcategury}${playerCategury.id}`, playerCategury).then((e) => {
+        axios.put(`${apiRoutes.playearcategury}${playerCategury.id}`, playerCategury).then((e) => {
             dispatch(playerCateguryClear())
             dispatch(fetchplayercategury())
         })

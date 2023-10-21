@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken, onMessage } from "firebase/messaging";
-import apiRoutes, { appAxios } from './apiRoutes';
+import apiRoutes, { axios } from './apiRoutes';
 import { toast } from 'react-toastify';
 const firebaseConfig = {
   apiKey: "AIzaSyAhiUaywKS_25JlkrMPiRVZQu0a-sl5rFM",
@@ -24,7 +24,7 @@ export const requestForToken = async () => {
       console.log("role", userRole);
 
       // Perform any other neccessary action with the token
-      appAxios.put(apiRoutes.updateToken, { token: currentToken }).then(e => console.log(e));
+      axios.put(apiRoutes.updateToken, { token: currentToken }).then(e => console.log(e));
       onMessage(messaging, (payload) => {
         // ...
         // toast(payload.data.message)

@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { apiRoutes, appAxios } from '../../Constants';
+import axios, { apiRoutes} from '../../Constants';
 
 export const fetchSoldplayer = createAsyncThunk(
     'Soldplayer',
     async () => {
-        const response = await appAxios(apiRoutes.soldplayer).then((e) => {
+        const response = await axios(apiRoutes.soldplayer).then((e) => {
             return e.data.soldplayer
         });
         return response

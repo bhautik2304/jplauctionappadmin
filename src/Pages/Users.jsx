@@ -14,14 +14,14 @@ import Paper from '@mui/material/Paper';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { onInputCheng, openModel, userClear } from '../Stores/Slice/modelSlice';
-import { apiRoutes, appAxios } from '../Constants';
+import axios , { apiRoutes} from '../Constants';
 import { Delete, Edit } from '@mui/icons-material';
 import { fetchUsers } from '../Stores/Slice/userSlice'
 
 function Users() {
     const { user } = useSelector(state => state.users)
     const deletes = (id) => {
-        appAxios.delete(`${apiRoutes.user}${id}`).then((e) => {
+        axios.delete(`${apiRoutes.user}${id}`).then((e) => {
             dispatch(fetchUsers())
             // dispatch(fetchplayercategury())
         })
@@ -94,13 +94,13 @@ function CateguryModel() {
     const dispatch = useDispatch()
 
     const submit = () => {
-        appAxios.post(apiRoutes.user, user).then((e) => {
+        axios.post(apiRoutes.user, user).then((e) => {
             dispatch(userClear())
             dispatch(fetchUsers())
         })
     }
     const update = () => {
-        appAxios.put(apiRoutes.user, user).then((e) => {
+        axios.put(apiRoutes.user, user).then((e) => {
             dispatch(userClear())
             dispatch(fetchUsers())
         })

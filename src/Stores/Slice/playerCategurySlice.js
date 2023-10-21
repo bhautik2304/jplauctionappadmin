@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { apiRoutes, appAxios } from '../../Constants';
+import axios, { apiRoutes} from '../../Constants';
 
 export const fetchplayercategury = createAsyncThunk(
   'playercategury',
   async () => {
-    const response = await appAxios(apiRoutes.playearcategury).then((e) => {
+    const response = await axios(apiRoutes.playearcategury).then((e) => {
       return e.data.Playercategury
     });
     return response

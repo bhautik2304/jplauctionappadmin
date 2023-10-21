@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const apiDomain="https://api.electrozevents.in/api/"
+export const apiDomain="http://43.206.149.16/api/"
 
 export const appRoutes = {
     // page Routes
@@ -20,12 +20,12 @@ export const appRoutes = {
     authotpveryfy: '/authotpveryfy',
 }
 export const apiRoutes = {
-    authLogin:"auth/login",
-    team:"team/",
-    playearcategury:"playearcategury/",
-    player:"player/",
-    user:"user/",
-    soldplayer:"soldplayer/",
+    authLogin:`${apiDomain}auth/login`,
+    team:`${apiDomain}team/`,
+    playearcategury:`${apiDomain}playearcategury/`,
+    player:`${apiDomain}player/`,
+    user:`${apiDomain}user/`,
+    soldplayer:`${apiDomain}soldplayer/`,
 }
 
 export const lsk = {
@@ -34,6 +34,4 @@ export const lsk = {
     apiKey: "apiKey",
 }
 
-export const appAxios= axios.create({
-    baseURL:apiDomain
-})
+export default axios

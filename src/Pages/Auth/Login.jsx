@@ -14,7 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import { login } from '../../Stores/Slice/authSlice';
-import { apiRoutes, appAxios, appRoutes } from '../../Constants';
+import axios,{ apiRoutes, appRoutes } from '../../Constants';
 import { Alert, AlertTitle } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
@@ -32,7 +32,7 @@ function Login() {
 
   const dispatch = useDispatch()
   const save = () => {
-    appAxios.post(apiRoutes.authLogin, { email: name, password: password }).then((e) => {
+    axios.post(apiRoutes.authLogin, { email: name, password: password }).then((e) => {
       console.log(e.data);
       if (e.data.code != "200") {
         setOpen(!open)

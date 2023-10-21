@@ -14,14 +14,14 @@ import Paper from '@mui/material/Paper';
 import Modal from '@mui/material/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { dataCheng, onInputCheng, openModel, teamClear } from '../Stores/Slice/modelSlice';
-import { apiRoutes, appAxios } from '../Constants';
+import axios , { apiRoutes} from '../Constants';
 import { Delete, Edit } from '@mui/icons-material';
 import { fetchteams } from '../Stores/Slice/teamSlice'
 
 function Team() {
     const { team } = useSelector(state => state.team)
     const deletes = (id) => {
-        appAxios.delete(`${apiRoutes.team}${id}`).then((e) => {
+        axios.delete(`${apiRoutes.team}${id}`).then((e) => {
           dispatch(fetchteams())
           // dispatch(fetchplayercategury())
         })
@@ -101,13 +101,13 @@ function TeamModel() {
     const dispatch = useDispatch()
 
     const submit = () => {
-        appAxios.post(apiRoutes.team, team).then((e) => {
+        axios.post(apiRoutes.team, team).then((e) => {
             dispatch(teamClear())
             dispatch(fetchteams())
         })
     }
     const update = () => {
-        appAxios.put(apiRoutes.team+team.id, team).then((e) => {
+        axios.put(apiRoutes.team+team.id, team).then((e) => {
             dispatch(teamClear())
             dispatch(fetchteams())
         })

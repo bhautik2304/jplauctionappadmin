@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { apiRoutes, appAxios } from '../../Constants';
+import axios, { apiRoutes} from '../../Constants';
 
 export const fetchteams = createAsyncThunk(
   'teams',
   async () => {
-    const response = await appAxios(apiRoutes.team).then((e) => {
+    const response = await axios(apiRoutes.team).then((e) => {
       return e.data.team
     });
     return response

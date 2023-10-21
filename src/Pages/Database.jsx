@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { Player, PlayerCategury, Team, Users } from './'
+import axios from 'axios';
 function Database() {
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    useEffect(() => {
+        axios("http://43.206.149.16/api/team").then(e => console.log(e.data))
+    }, [])
 
     return (
         <Box sx={{ width: '100%' }}>
